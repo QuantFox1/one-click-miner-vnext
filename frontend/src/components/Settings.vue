@@ -18,8 +18,8 @@
           {{ $t("settings.language") }}:
           <br />
           <select style="width: 100%" name="language" v-model="$i18n.locale">
-            <option v-for="lang in langs" v-bind:key="lang" :value="lang">
-                {{ lang }}
+            <option v-for="locale in $i18n.availableLocales" :key="`locale-${locale}`" :value="locale">
+              {{ locale }}
             </option>
           </select>
           <span class="subtext">{{ $t("settings.choose_language") }}</span>
@@ -76,31 +76,7 @@ export default {
       showWarning: false,
       testnet: false,
       poolID: -1,
-      pools: [],
-      languageID: -1,
-      langs: [
-        'bg',
-        'da',
-        'de',
-        'en',
-        'es',
-        'fr',
-        'hi',
-        'hr',
-        'it',
-        'ja',
-        'nl',
-        'no',
-        'pa',
-        'pl',
-        'pt',
-        'ro',
-        'ru',
-        'sl',
-        'sv',
-        'tr',
-        'zh'
-      ]
+      pools: []
     };
   },
 
